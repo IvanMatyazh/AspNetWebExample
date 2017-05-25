@@ -15,14 +15,23 @@ namespace AspNetTutorials.Controllers
         private MusicShopDbContext db = new MusicShopDbContext();
 
         // GET: MusicShop
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string type, string searchString)
         {
+            InstrumentType insType = InstrumentType.Guitar;
+
+            ViewBag.type = new SelectList(Enum.GetValues(typeof(InstrumentType)));
+
             var instruments = from ins in db.Instruments
                          select ins;
 
             if (!string.IsNullOrEmpty(searchString))
             {
                 instruments = instruments.Where(s => s.Name.Contains(searchString));
+            }
+
+            if(type!="All" && Enum.TryParse(type, out insType))
+            {
+                instruments = instruments.Where(s => s.Type == insType);
             }
 
             return View(instruments);

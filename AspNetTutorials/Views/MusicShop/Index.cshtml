@@ -12,9 +12,11 @@
     @using (Html.BeginForm())
     {
     <p>
+        Type of Instrument: @Html.DropDownList("type", "All")
         Title: @Html.TextBox("searchString") <br />
-        <input type="submit" value="Filter" />
+        <input type="submit" value="Filter" class="btn btn-default" />
     </p>
+    <br />
     }
     
 </p>
