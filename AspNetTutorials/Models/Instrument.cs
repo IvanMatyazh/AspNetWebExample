@@ -22,7 +22,9 @@ namespace AspNetTutorials.Models
 
         public InstrumentType Type { get; set; }
 
-        public string Name { get; set; }
+        public string Manufacturer { get; set; }
+
+        public string Model { get; set; }
 
         public double Price { get; set; }
 

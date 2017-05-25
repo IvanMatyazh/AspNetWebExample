@@ -26,7 +26,7 @@ namespace AspNetTutorials.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                instruments = instruments.Where(s => s.Name.Contains(searchString));
+                instruments = instruments.Where(s => (s.Manufacturer + " " +s.Model).Contains(searchString));
             }
 
             if(type!="All" && Enum.TryParse(type, out insType))
@@ -63,7 +63,7 @@ namespace AspNetTutorials.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Type,Name,Price")] Instrument instrument)
+        public ActionResult Create([Bind(Include = "Id,Type,Manufacturer,Model,Price")] Instrument instrument)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace AspNetTutorials.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Type,Name,Price")] Instrument instrument)
+        public ActionResult Edit([Bind(Include = "Id,Type,Manufacturer,Model,Price")] Instrument instrument)
         {
             if (ModelState.IsValid)
             {

@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Musical Instruments</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,7 +13,7 @@
     {
     <p>
         Type of Instrument: @Html.DropDownList("type", "All")
-        Title: @Html.TextBox("searchString") <br />
+        Name: @Html.TextBox("searchString") <br />
         <input type="submit" value="Filter" class="btn btn-default" />
     </p>
     <br />
@@ -27,7 +27,10 @@
             @Html.DisplayNameFor(model => model.Type)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Manufacturer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Price)
@@ -41,10 +44,13 @@
             @Html.DisplayFor(modelItem => item.Type)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.Manufacturer)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Price)
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)$
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
