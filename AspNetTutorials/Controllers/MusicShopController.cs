@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AspNetTutorials.Models;
+using IpSniffer;
 
 namespace AspNetTutorials.Controllers
 {
@@ -17,12 +18,32 @@ namespace AspNetTutorials.Controllers
         // GET: MusicShop
         public ActionResult Index(string type, string searchString)
         {
+            string ipAddress = IpGetter.GetIPAddress();
+            IpRecord record = db.IpRecords.Where(ip => ip.IpAddress == ipAddress).SingleOrDefault();
+            if(record == null)
+            {
+                IpRecord newRecord = new IpRecord()
+                {
+                    IpAddress = ipAddress,
+                    TimeOfRecord = DateTime.UtcNow,
+                    LastTimeOfIssue = DateTime.UtcNow
+                };
+                db.IpRecords.Add(newRecord);
+                db.SaveChanges();
+            }
+            else
+            {
+                record.LastTimeOfIssue = DateTime.UtcNow;
+                db.Entry(record).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+
             InstrumentType insType = InstrumentType.Guitar;
 
             ViewBag.type = new SelectList(Enum.GetValues(typeof(InstrumentType)));
 
             var instruments = from ins in db.Instruments
-                         select ins;
+                              select ins;
 
             if (!string.IsNullOrEmpty(searchString))
             {

@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetTutorials", "AspNetTutorials\AspNetTutorials.csproj", "{7568A56D-949C-4C03-B5D1-AC57CEED0D84}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpSniffer", "IpSniffer\IpSniffer.csproj", "{7C38A684-A11F-4DDD-9A97-249D4CAAB9B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7568A56D-949C-4C03-B5D1-AC57CEED0D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7568A56D-949C-4C03-B5D1-AC57CEED0D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7568A56D-949C-4C03-B5D1-AC57CEED0D84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C38A684-A11F-4DDD-9A97-249D4CAAB9B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C38A684-A11F-4DDD-9A97-249D4CAAB9B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C38A684-A11F-4DDD-9A97-249D4CAAB9B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C38A684-A11F-4DDD-9A97-249D4CAAB9B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

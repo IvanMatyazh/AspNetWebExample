@@ -33,5 +33,7 @@ namespace AspNetTutorials.Models
     public class MusicShopDbContext : DbContext
     {
         public DbSet<Instrument> Instruments { get; set; }
+
+        public DbSet<IpRecord> IpRecords { get; set; }
     }
 }
